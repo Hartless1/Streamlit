@@ -1,4 +1,4 @@
-python==3.11.5
+python==3.8.18
 plotly==5.9.0
 pandas==2.0.3
 streamlit==1.29.0
