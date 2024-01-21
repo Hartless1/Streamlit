@@ -15,17 +15,20 @@ zf = ZipFile('euro-exchange-daily-rates-19992020.zip')
 zf.extractall() 
 zf.close()
 
-#@st.experimental_memo
-def get_data() -> pd.DataFrame:
-    return pd.read_csv('euro-daily-hist_1999_2022.csv')
-
-df = get_data()
-
 st.set_page_config(
     page_title="Real-Time Data Science Dashboard",
     page_icon="✅",
     layout="wide",
 )
+
+#@st.experimental_memo
+@st.cache_data
+def get_data() -> pd.DataFrame:
+    return pd.read_csv('euro-daily-hist_1999_2022.csv')
+
+df = get_data()
+
+
 
 # dashboard title
 st.title("Real-Time / Live Data Science Dashboard")
